@@ -250,6 +250,8 @@ static int virtgpu_dma_buf_init_obj(struct drm_device *dev,
 
 	virtio_gpu_cmd_resource_create_blob(vgdev, bo, &params,
 					    ents, nents);
+
+	virtio_gpu_object_save_restore_list(vgdev, bo, &params);
 	bo->guest_blob = true;
 	bo->attached = true;
 
